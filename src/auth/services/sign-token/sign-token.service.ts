@@ -13,7 +13,7 @@ export class SignTokenService {
     };
     const secret = process.env.JWT_SECRET;
     const token = await this.jwt.signAsync(payload, {
-      expiresIn: '1h',
+      expiresIn: '24h',
       secret,
     });
     return { token };
