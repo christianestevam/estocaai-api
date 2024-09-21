@@ -13,12 +13,16 @@ export class CreateEmpresaService {
   constructor(private prisma: PrismaService) {}
 
   async execute(dto: IRequest) {
-    return await this.prisma.empresa.create({
+    const empresa = await this.prisma.empresa.create({
       data: {
         name: dto.name,
         CNPJ: dto.CNPJ,
         email: dto.email,
       },
+    });
+    await this.prisma.user.update({
+      where: { id: dto.userId },
+      data: { empresaId: empresa.id },
     });
   }
 }
