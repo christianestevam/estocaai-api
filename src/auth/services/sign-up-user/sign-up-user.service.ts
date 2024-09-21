@@ -15,7 +15,7 @@ export class SignUpUserService {
         password: hashedPassword,
         name: dto.firstName,
         lastName: dto.lastName,
-        role: dto.role as 'ADMIN' | 'USER',
+        role: 'ADMIN',
       },
     });
   }

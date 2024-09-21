@@ -45,7 +45,7 @@ model Empresa {
 
 model Estoque {
   id Int @id @default(autoincrement())
-  nome String
+  name String
   descricao String
   empresaId Int?
   empresa Empresa? @relation(fields: [empresaId], references: [id])

@@ -6,7 +6,7 @@ import { SignUpUserService } from 'src/auth/services/sign-up-user/sign-up-user.s
 export class SignUpUserController {
   constructor(private signUpUserService: SignUpUserService) {}
 
-  @Post('sign-up')
+  @Post('register')
   async handle(@Body() dto: SignUpUserDTO) {
     return await this.signUpUserService.execute(dto);
   }
