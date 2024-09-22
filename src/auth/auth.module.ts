@@ -6,6 +6,7 @@ import { SignInUserService } from './services/sign-in-user/sign-in-user.service'
 import { SignTokenService } from './services/sign-token/sign-token.service';
 import { SignInUserController } from './controllers/sign-in-user/sign-in-user.controller';
 import { JwtService } from '@nestjs/jwt';
+import { GetUserController } from './controllers/get-user/get-user.controller';
 
 @Module({
   providers: [
@@ -15,6 +16,6 @@ import { JwtService } from '@nestjs/jwt';
     SignInUserService,
     SignTokenService,
   ],
-  controllers: [SignUpUserController, SignInUserController],
+  controllers: [SignUpUserController, SignInUserController, GetUserController],
 })
 export class AuthModule {}
