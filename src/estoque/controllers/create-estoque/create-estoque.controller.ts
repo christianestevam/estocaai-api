@@ -23,6 +23,6 @@ export class CreateEstoqueController {
         'You do not have permission to access this resource',
       );
     }
-    return await this.service.execute(dto);
+    return await this.service.execute({ ...dto, empresaId: user.empresaId });
   }
 }
