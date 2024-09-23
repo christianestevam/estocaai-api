@@ -7,6 +7,8 @@ import { SignTokenService } from './services/sign-token/sign-token.service';
 import { SignInUserController } from './controllers/sign-in-user/sign-in-user.controller';
 import { JwtService } from '@nestjs/jwt';
 import { GetUserController } from './controllers/get-user/get-user.controller';
+import { AdminCreateUserService } from './services/admin-create-user/admin-create-user.service';
+import { AdminCreateUserController } from './controllers/admin-create-user/admin-create-user.controller';
 
 @Module({
   providers: [
@@ -15,7 +17,8 @@ import { GetUserController } from './controllers/get-user/get-user.controller';
     SignUpUserService,
     SignInUserService,
     SignTokenService,
+    AdminCreateUserService,
   ],
-  controllers: [SignUpUserController, SignInUserController, GetUserController],
+  controllers: [SignUpUserController, SignInUserController, GetUserController, AdminCreateUserController],
 })
 export class AuthModule {}
