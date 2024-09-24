@@ -9,6 +9,8 @@ import { UpdateItemService } from './service/update-item/update-item.service';
 import { DeleteItemService } from './service/delete-item/delete-item.service';
 import { GetItemService } from './service/get-item/get-item.service';
 import { GetItemController } from './controllers/get-item/get-item.controller';
+import { GetMovimentacoesService } from './services/get-movimentacoes/get-movimentacoes.service';
+import { GetMovimentacoesController } from './controllers/get-movimentacoes/get-movimentacoes.controller';
 
 @Module({
   controllers: [
@@ -16,6 +18,7 @@ import { GetItemController } from './controllers/get-item/get-item.controller';
     GetItemController,
     UpdateItemController,
     DeleteItemController,
+    GetMovimentacoesController,
   ],
   providers: [
     CreateItemService,
@@ -24,6 +27,7 @@ import { GetItemController } from './controllers/get-item/get-item.controller';
     UpdateItemService,
     DeleteItemService,
     GetItemService,
+    GetMovimentacoesService,
   ],
 })
 export class ItemModule {}
