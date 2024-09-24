@@ -13,6 +13,18 @@ export class UpdateItemService {
     if (!item) {
       throw new NotFoundException('Item not found');
     }
+
+    const diferencaQuantidade = dto.quantity - item.quantidade;
+
+    await this.prisma.movimentacao.create({
+      data: {
+        tipo: diferencaQuantidade > 0 ? 'ENTRADA' : 'SAIDA',
+        quantidade: Math.abs(diferencaQuantidade),
+        itemId: item.id,
+        data: new Date(),
+      },
+    });
+
     return await this.prisma.item.update({
       where: { id },
       data: {
