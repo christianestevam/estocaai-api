@@ -8,6 +8,8 @@ import { JwtGuard } from 'src/auth/guard/jwt.guard';
 export class GetUserController {
   @Get()
   async handle(@GetUser() user: User) {
+    delete user.password;
+    delete user.id;
     return user;
   }
 }
