@@ -1,21 +1,18 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+// src/item/service/get-item/get-item.service.ts
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class GetItemService {
   constructor(private prisma: PrismaService) {}
 
-  async findAll() {
-    return await this.prisma.item.findMany();
-  }
-
-  async findOne(id: number) {
-    const item = await this.prisma.item.findUnique({
-      where: { id },
+  async findAllByEmpresa(empresaId: number) {
+    return await this.prisma.item.findMany({
+      where: {
+        estoque: {
+          empresaId, // Filtra pelos estoques que pertencem à empresa com o ID fornecido
+        },
+      },
     });
-    if (!item) {
-      throw new NotFoundException('Item not found');
-    }
-    return item;
   }
 }
