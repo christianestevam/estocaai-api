@@ -3,14 +3,14 @@ import { IsString, IsNumber, IsOptional } from 'class-validator';
 export class UpdateItemDto {
   @IsOptional()
   @IsString()
-  name: string;
+  nome: string;
   @IsOptional()
   @IsString()
-  description: string;
+  descricao: string;
   @IsOptional()
   @IsNumber()
-  quantity: number;
+  quantidade: number;
   @IsOptional()
   @IsNumber()
-  price: number;
+  preco: number;
 }
